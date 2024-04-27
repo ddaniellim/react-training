@@ -1,23 +1,31 @@
 import "./App.css";
 import Test from "./test";
+import {useState} from "react"; 
 
 function App() {
-  const planets = [
-    { name: "Mars", isGasPlanet: false },
-    { name: "Earth", isGasPlanet: false },
-    { name: "Jupiter", isGasPlanet: true },
-    { name: "Venus", isGasPlanet: false },
-    { name: "Neptune", isGasPlanet: true },
-    { name: "Uranus", isGasPlanet: true }
-  ];
-  return (
-
-    <div className="App">
-      { 
-        planets.map((planet, key) => {
-          return planet.isGasPlanet && <Test key={key} name={planet.name}/>
-        })
+    const [count, setCount] = useState(0);
+    const updateNumber = (event) => {
+      switch(event.target.innerText){
+        case 'Increase' : 
+          setCount(count + 1); 
+          break;
+        case 'Decrease' : 
+          setCount(count - 1);
+          break;
+        case 'Set to zero' : 
+          setCount(0)
+          break;
       }
+    };
+
+  return (
+    <div className="App">
+      <button onClick={updateNumber}>Increase</button>
+      <button onClick={updateNumber}>Decrease</button>
+      <button onClick={updateNumber}>Set to zero</button>
+
+      <br/>
+      {count}
     </div>
   );
 }
