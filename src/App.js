@@ -2,11 +2,22 @@ import "./App.css";
 import Test from "./test";
 
 function App() {
+  const planets = [
+    { name: "Mars", isGasPlanet: false },
+    { name: "Earth", isGasPlanet: false },
+    { name: "Jupiter", isGasPlanet: true },
+    { name: "Venus", isGasPlanet: false },
+    { name: "Neptune", isGasPlanet: true },
+    { name: "Uranus", isGasPlanet: true }
+  ];
   return (
+
     <div className="App">
-      <Test name="Bryan Garate" salary={100000} position="developer" company="orro"/>
-      <Test name="Deux Lim" salary={31000} position="developer" company="orro"/>
-      <Test name="Nicole Zuniega" salary={60000} position="developer" company="orro"/>
+      { 
+        planets.map((planet, key) => {
+          return planet.isGasPlanet && <Test key={key} name={planet.name}/>
+        })
+      }
     </div>
   );
 }
