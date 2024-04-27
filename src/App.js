@@ -20,9 +20,9 @@ function App() {
 
   return (
     <div className="App">
-      <button onClick={updateNumber}>Increase</button>
-      <button onClick={updateNumber}>Decrease</button>
-      <button onClick={updateNumber}>Set to zero</button>
+      <button className="p-1 border-4 m-2" onClick={updateNumber}>Increase</button>
+      <button className="p-1 border-4 m-2" onClick={updateNumber}>Decrease</button>
+      <button className="p-1 border-4 m-2" onClick={updateNumber}>Set to zero</button>
 
       <br/>
       {count}
