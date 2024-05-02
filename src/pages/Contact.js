@@ -1,3 +1,15 @@
+import { useContext } from 'react';
+import { AppContext } from "../App";
+
 export const Contact = () => {
-    return <h1>This is the Contact</h1>
+    const { setUsername } = useContext(AppContext);
+    const changeUserName = (event) => {
+        setUsername(event.target.value);
+    }
+    return (
+        <>
+            <h1>set your username : </h1>
+            <input onChange={changeUserName}></input>
+        </>
+    );  
 }
